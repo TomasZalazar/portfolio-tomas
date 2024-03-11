@@ -1,0 +1,72 @@
+
+---
+import HeaderButton from "./HeaderButton.astro";
+import Brand from '../components/Brand.astro'
+
+---
+
+<style>
+    @media (max-width: 767px) {
+    .mobile-menu-bg {
+        background-color: #3c7272; /* Cambia a tu color deseado */
+    }
+}
+</style>
+
+
+<nav class="py-6  bg-[#202020ea] sticky top-0 z-10 md:items-center md:justify-between ">
+    <div class="flex justify-evenly items-center ">
+        <Brand/>
+        
+            
+            <span id="menuButton" class="text-3xl cursor-pointer mx-2 md:hidden block " >
+                <ion-icon class="text-white" name="menu"></ion-icon>
+            </span>
+            
+
+                <ul class="flex flex-col md:flex-row items-center  md:items-center z-[100] md:z-auto md:static absolute w-full left-0 md:w-auto md:py-0 py-4 md:pl-0  opacity-100 top-[-400px] transition-all ease-in duration-300">
+                    <li class="mx-5 my-6 md:my-0 hover:scale-105  transition-all ease-out duration-500 ">
+                        <HeaderButton  onclick="CloseMenu()">Proyectos</HeaderButton>
+                    </li>
+                    <li class="mx-4 my-6 md:my-0 hover:scale-105  transition-all ease-in-out duration-500">
+                        <HeaderButton onclick="CloseMenu()">Sobre mi</HeaderButton>
+                    </li>
+                    <li class="mx-4 my-6 md:my-0 hover:scale-105  transition-all ease-in duration-500">
+                        <HeaderButton onclick="CloseMenu()">Contacto</HeaderButton> 
+                    </li>
+                </ul>
+          
+
+    </div>
+</nav>
+
+
+
+<script>
+    document.getElementById('menuButton')?.addEventListener('click', toggleMenu);
+
+    function toggleMenu() {
+        let list = document.querySelector('ul');
+
+        list?.classList.toggle('top-[105px]');
+        list?.classList.toggle('opacity-100');
+
+        // Agregar o quitar una clase específica para el fondo en dispositivos móviles
+        list?.classList.toggle('mobile-menu-bg');
+    }
+
+    function closeMenu() {
+        let list = document.querySelector('ul');
+        list?.classList.remove('top-[105px]');
+        list?.classList.remove('opacity-100');
+
+        // Quitar la clase de fondo al cerrar el menú en dispositivos móviles
+        list?.classList.remove('mobile-menu-bg');
+    }
+
+    // Llamada a closeMenu cuando se hace clic en un elemento del menú
+    document.querySelectorAll('ul li').forEach(item => {
+        item.addEventListener('click', closeMenu);
+    });
+
+</script>
