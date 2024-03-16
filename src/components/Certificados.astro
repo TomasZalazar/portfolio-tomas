@@ -1,0 +1,96 @@
+
+
+<astro-document title="Certificados">
+  <style>
+    .imagen{
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+    }
+  </style>
+
+  <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <h1 class="items-center flex justify-center py-5 text-stone-50 text-4xl uppercase font-mono">Certificados</h1>
+    <div class="grid row-gap-8 sm:row-gap-0 sm:grid-cols-2 lg:grid-cols-2">
+      <div class="p-8 border-b sm:border-r">
+        <div class="max-w-md text-center">
+          <div class="flex items-center justify-center w-full h-1/2 mx-auto mb-4 ">
+            <img src="../../public/certificados/DesarrolloWeb.png" class="imagen"alt="">
+          </div>
+          <h6 class="mb-2 font-semibold leading-5">Desarrollo Web</h6>
+          <p class="mb-3 text-md font-semibold text-gray-900">
+            Como recién egresado en Desarrollo Web, estoy emocionado de haber completado mi primer curso en esta disciplina. Durante este programa, adquirí una comprensión sólida de los fundamentos del desarrollo web, incluidos HTML, CSS y JavaScript. Aunque estoy en las primeras etapas de mi carrera, estoy comprometido con el aprendizaje continuo y la mejora de mis habilidades en este emocionante campo.
+          </p>
+        </div>
+      </div>
+      <div class="p-8 border-b lg:border-r-0">
+        <div class="max-w-md text-center">
+          <div class="flex items-center justify-center w-full h-1/2 mx-auto mb-4 ">
+            <img src="../../public/certificados/JavaScript.png" class="imagen" alt="">
+          </div>
+          <h6 class="mb-2 font-semibold leading-5">JavaScript</h6>
+          <p class="mb-3 text-md font-semibold text-gray-900">
+            Aprobé mi curso de JavaScript, complementando mi formación en desarrollo web. Aunque no estuve en el top 10, demuestra mi dedicación a mejorar constantemente y a dominar tecnologías esenciales para el desarrollo web dinámico. Estoy entusiasmado por aplicar mis habilidades de JavaScript en proyectos futuros y explorar sus posibilidades.
+          </p>
+        </div>
+      </div>
+      <div class="p-8 border-b-0 sm:border-r lg:border-r-1">
+        <div class="max-w-md text-center">
+          <div class="flex items-center justify-center w-full h-1/2 mx-auto mb-4 ">
+            <img src="../../public/certificados/ReactJs.png" class="imagen" alt="">
+          </div>
+          <h6 class="mb-2 font-semibold leading-5">ReactJs</h6>
+          <p class="mb-3 text-md font-semibold text-gray-900">
+            Me enorgullece haber obtenido mi certificado en React.js, donde no solo aprobé, sino que también logré destacarme en el top 10 de mi cohorte. Este logro representa mi dedicación y pasión por dominar esta popular biblioteca de JavaScript para la construcción de interfaces de usuario interactivas y dinámicas. Estoy emocionado de seguir explorando las posibilidades que ofrece React.js y de aplicar mis habilidades en proyectos desafiantes.
+          </p>
+        </div>
+      </div>
+      <div class="p-8 border-t lg:border-b-0 lg:border-0">
+        <div class="max-w-md text-center">
+          <div class="flex items-center justify-center w-full h-1/2 mx-auto mb-4 ">
+            <img src="../../public/certificados/certificado-carrera.png" class="imagen" alt="">
+          </div>
+          <h6 class="mb-2 font-semibold leading-5">Carrera Front-End</h6>
+          <p class="mb-3 text-md font-semibold text-gray-900">
+            Durante mi carrera en Frontend, me esforcé por alcanzar el éxito y estoy encantado de haber terminado en el top 10 de mi cohorte. Este logro refleja mi compromiso con la excelencia en el diseño y desarrollo de interfaces de usuario atractivas y funcionales. Estoy ansioso por seguir creciendo en el campo del Frontend y contribuir con mi experiencia en proyectos innovadores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePantallaCompleta() {
+      var imagen = this;
+      var isFullscreen = (
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        document.mozFullScreenElement ||
+        document.msFullscreenElement
+      );
+      isFullscreen ? salirPantallaCompleta() : entrarPantallaCompleta(imagen);
+    }
+
+    function entrarPantallaCompleta(elemento) {
+      elemento.requestFullscreen ? elemento.requestFullscreen() :
+        elemento.webkitRequestFullscreen ? elemento.webkitRequestFullscreen() :
+        elemento.mozRequestFullScreen ? elemento.mozRequestFullScreen() :
+        elemento.msRequestFullscreen && elemento.msRequestFullscreen();
+    }
+
+    function salirPantallaCompleta() {
+      document.exitFullscreen ? document.exitFullscreen() :
+        document.webkitExitFullscreen ? document.webkitExitFullscreen() :
+        document.mozCancelFullScreen ? document.mozCancelFullScreen() :
+        document.msExitFullscreen && document.msExitFullscreen();
+    }
+
+    // Obtener todas las imágenes con la clase "imagen"
+    var imagenes = document.querySelectorAll('.imagen');
+    
+    // Agregar el listener de clic a todas las imágenes
+    imagenes.forEach(function(imagen) {
+      imagen.addEventListener('click', togglePantallaCompleta);
+    });
+  </script>
+</astro-document>
